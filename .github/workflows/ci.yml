@@ -17,7 +17,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
       - name: "Linting: black"
         run: "poetry run invoke black"
   bandit:
@@ -28,7 +28,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
       - name: "Linting: bandit"
         run: "poetry run invoke bandit"
     needs:
@@ -41,7 +41,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
       - name: "Type-Hints: mypy"
         run: "poetry run invoke mypy"
     needs:
@@ -54,7 +54,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
       - name: "Linting: pydocstyle"
         run: "poetry run invoke pydocstyle"
     needs:
@@ -67,7 +67,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
       - name: "Linting: flake8"
         run: "poetry run invoke flake8"
     needs:
@@ -80,7 +80,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
       - name: "Linting: yamllint"
         run: "poetry run invoke yamllint"
     needs:
@@ -97,7 +97,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
         with:
           python-version: "${{ matrix.python-version }}"
       - name: "Get image version"
@@ -133,7 +133,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
         with:
           python-version: "${{ matrix.python-version }}"
       - name: "Get image version"
@@ -170,7 +170,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
         with:
           python-version: "${{ matrix.python-version }}"
       - name: "Get image version"
@@ -207,7 +207,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
         with:
           python-version: "3.9"
       - name: "Install Python Packages"
@@ -236,7 +236,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "./.github.com/actions/setup-env"
+        uses: "./.github/actions/setup-env"
         with:
           python-version: "3.9"
       - name: "Install Python Packages"
