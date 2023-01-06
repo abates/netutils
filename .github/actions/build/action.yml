@@ -33,7 +33,7 @@ runs:
         cache-from: "type=gha,scope=${{ env.IMAGE_NAME }}-${{ env.IMAGE_VER }}-py${{ inputs.python-version }}"
         cache-to: "type=gha,scope=${{ env.IMAGE_NAME }}-${{ env.IMAGE_VER }}-py${{ inputs.python-version }}"
         build-args: |
-          PYTHON_VER=${{ inputs.python-ver }}
+          PYTHON_VER=${{ inputs.python-version }}
     - name: "Debug: Show docker images"
       run: "docker image ls"
       shell: "bash"
