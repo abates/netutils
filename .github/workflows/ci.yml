@@ -17,7 +17,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Linting: black"
         run: "poetry run invoke black"
   bandit:
@@ -28,7 +28,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Linting: bandit"
         run: "poetry run invoke bandit"
     needs:
@@ -41,7 +41,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Type-Hints: mypy"
         run: "poetry run invoke mypy"
     needs:
@@ -54,7 +54,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Linting: pydocstyle"
         run: "poetry run invoke pydocstyle"
     needs:
@@ -67,7 +67,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Linting: flake8"
         run: "poetry run invoke flake8"
     needs:
@@ -80,7 +80,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Linting: yamllint"
         run: "poetry run invoke yamllint"
     needs:
@@ -97,7 +97,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Get image version"
         run: "echo IMAGE_VER=`poetry version -s`-py${{ matrix.python-version }} >> $GITHUB_ENV"
       - name: "Set up Docker Buildx"
@@ -106,8 +106,6 @@ jobs:
       - name: "Build"
         uses: "docker/build-push-action@v3"
         with:
-          builder: "${{ steps.buildx.outputs.name }}"
-          context: "./"
           push: false
           tags: "${{ env.IMAGE_NAME }}:${{ env.IMAGE_VER }}"
           file: "./Dockerfile"
@@ -133,7 +131,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Get image version"
         run: "echo IMAGE_VER=`poetry version -s`-py${{ matrix.python-version }} >> $GITHUB_ENV"
       - name: "Set up Docker Buildx"
@@ -142,8 +140,6 @@ jobs:
       - name: "Load the image from cache"
         uses: "docker/build-push-action@v3"
         with:
-          builder: "${{ steps.buildx.outputs.name }}"
-          context: "./"
           push: false
           load: true
           tags: "${{ env.IMAGE_NAME }}:${{ env.IMAGE_VER }}"
@@ -170,7 +166,7 @@ jobs:
       - name: "Check out repository code"
         uses: "actions/checkout@v2"
       - name: "Setup environment"
-        uses: "networktocode/gh-action-setup-poetry-environment@v2"
+        uses: "networktocode/gh-action-setup-poetry-environment@v4"
       - name: "Get image version"
         run: "echo IMAGE_VER=`poetry version -s`-py${{ matrix.python-version }} >> $GITHUB_ENV"
       - name: "Set up Docker Buildx"
@@ -179,8 +175,6 @@ jobs:
       - name: "Load the image from cache"
         uses: "docker/build-push-action@v3"
         with:
-          builder: "${{ steps.buildx.outputs.name }}"
-          context: "./"
           push: false
           load: true
           tags: "${{ env.IMAGE_NAME }}:${{ env.IMAGE_VER }}"
