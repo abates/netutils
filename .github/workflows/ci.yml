@@ -3,6 +3,7 @@ name: "CI"
 on:  # yamllint disable-line rule:truthy
   - "push"
   - "pull_request"
+  - "workflow_dispatch"
 
 env:
   IMAGE_NAME: "netutils"
